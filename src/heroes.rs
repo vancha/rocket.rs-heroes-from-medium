@@ -83,7 +83,7 @@ pub fn insert(content_type: &ContentType, hero_data: Data) -> Flash<Redirect> {
                     let _path = &file_field.path;
 
                     /* Lets split name to get format */
-                    let format: Vec<&str> = _file_name.as_ref().unwrap().split('.').collect(); /* Reparsing the fileformat */
+                    let _format: Vec<&str> = _file_name.as_ref().unwrap().split('.').collect(); /* Reparsing the fileformat */
 
                     /* Path parsing */
                     let absolute_path: String = format!("imgs/{}", _file_name.clone().unwrap());
@@ -184,7 +184,7 @@ pub fn process_update(content_type: &ContentType, hero_data: Data) -> Flash<Redi
                     let _path = &file_field.path;
 
                     /* Lets split name to get format */
-                    let format: Vec<&str> = _file_name.as_ref().unwrap().split('.').collect(); /* Reparsing the fileformat */
+                    let _format: Vec<&str> = _file_name.as_ref().unwrap().split('.').collect(); /* Reparsing the fileformat */
 
                     /* Path parsing */
                     let absolute_path: String = format!("imgs/{}", _file_name.clone().unwrap());

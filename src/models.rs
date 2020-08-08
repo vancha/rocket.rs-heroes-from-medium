@@ -2,7 +2,7 @@ use crate::schema::*;
 
 use serde::Serialize;
 
-#[derive(Debug, Qyeryable, Serialize)]
+#[derive(Debug, Queryable, Serialize)]
 pub struct Hero {
     pub id: i32,
     pub fantasy_name: String,

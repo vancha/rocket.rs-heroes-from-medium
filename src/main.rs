@@ -1,10 +1,11 @@
-#![!feature(proc_macro_hygiene, decl_macro)]
+#![feature(proc_macro_hygiene, decl_macro)]
 
+/* Our extern crates */
 #[macro_use]
 extern crate diesel;
 
 #[macro_use]
-extern crate  rocket;
+extern crate rocket;
 
 extern crate dotenv;
 
@@ -28,17 +29,17 @@ pub mod models;
 /* auto-generated table macros */
 pub mod schema;
 
-pub fn stablish_connection() -> PgConnection {
-    dotenv.ok();
+pub fn establish_connection() -> PgConnection {
+    dotenv().ok();
 
-    let database_url = env::var(("DATABASE_URL"))
+    let database_url = env::var("DATABASE_URL")
         .expect("DATABASE_URL must bes et");
 
-    PgConnection::establish((&database_url))
+    PgConnection::establish(&database_url)
         .expect(&format!("Error connection to {}", database_url))
 }
 
-#[get("imgs/<file..>")]
+#[get("/imgs/<file..>")]
 fn assets(file: PathBuf) -> Option<NamedFile> {
     NamedFile::open(Path::new("imgs/").join(file)).ok()
 }
