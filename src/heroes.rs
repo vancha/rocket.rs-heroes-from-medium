@@ -3,6 +3,7 @@ use rocket_contrib::templates::Template;
 use std::collections::HashMap;
 
 /* Diesel query builder */
+#[macro_use]
 use diesel::prelude::*;
 
 /* Database macros */
@@ -10,6 +11,8 @@ use crate::schema::*;
 
 /* Database data structs (Hero, NewHero) */
 use crate::models::*;
+//use crate::schema::Hero;
+//use schema::*;
 
 /* To be able to parse raw forms */
 use rocket::http::ContentType;
@@ -87,7 +90,8 @@ pub fn insert(content_type: &ContentType, hero_data: Data) -> Flash<Redirect> {
 
                     /* Path parsing */
                     let absolute_path: String = format!("imgs/{}", _file_name.clone().unwrap());
-                    fs::copy(_path, &absolute_path).unwrap();
+                    println!("from {:?} to {}",_path, absolute_path);
+                    fs::copy(_path, &absolute_path).unwrap_or_else(|_| panic!("darn :("));
 
                     Some(format!("imgs/{}", _file_name.clone().unwrap()))
                 }

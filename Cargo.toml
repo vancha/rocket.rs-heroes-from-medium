@@ -1,5 +1,5 @@
 [package]
-name = "heores"
+name = "heroes"
 version = "0.1.0"
 authors = ["73nko <apramos89@gmail.com>"]
 edition = "2018"
@@ -7,14 +7,14 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-rocket = "0.4.5"
-rocket_codegen = "0.4.5"
-diesel = { version = "1.4.5", features = ["postgres"] }
+rocket = "0.4.8"
+rocket_codegen = "0.4.8"
+diesel = { version = "1.4.5", features = ["mysql"] }
 dotenv = "0.15.0"
 rocket-multipart-form-data = "0.9.5"
 serde = { version = "1.0", features = ["derive"] }
 
 [dependencies.rocket_contrib]
-version = "0.4.5"
+version = "0.4.8"
 default-features = false
 features = ["handlebars_templates"]

@@ -10,7 +10,7 @@ extern crate rocket;
 extern crate dotenv;
 
 /* Importing functions */
-use diesel::pg::PgConnection;
+use diesel::mysql::MysqlConnection;
 use diesel::Connection;
 use dotenv::dotenv;
 use std::env;
@@ -29,13 +29,13 @@ pub mod models;
 /* auto-generated table macros */
 pub mod schema;
 
-pub fn establish_connection() -> PgConnection {
+pub fn establish_connection() -> MysqlConnection {
     dotenv().ok();
 
     let database_url = env::var("DATABASE_URL")
         .expect("DATABASE_URL must bes et");
 
-    PgConnection::establish(&database_url)
+    MysqlConnection::establish(&database_url)
         .expect(&format!("Error connection to {}", database_url))
 }
 
