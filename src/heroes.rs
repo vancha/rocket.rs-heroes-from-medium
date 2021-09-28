@@ -34,14 +34,14 @@ pub fn list(flash: Option<FlashMessage>) -> Template {
     let heroes: Vec<Hero> = heroes::table
         .select(heroes::all_columns)
         .load::<Hero>(&crate::establish_connection())
-        .expect("Whoops, like this went bananas!");
+        .expect("problem getting bookings");
 
     /* Insert on the template rendering
     context our new heroes vec */
     if let Some(ref msg) = flash {
         context.insert("data", (heroes, msg.msg()));
     } else {
-        context.insert("data", (heroes, "Listing heroes..."));
+        context.insert("data", (heroes, "listing bookings"));
     }
 
     /* Return the template */

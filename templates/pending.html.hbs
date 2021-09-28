@@ -42,15 +42,16 @@
                     <div class="card-header">
                         <img class="img-fluid img-thumb" src="{{this.spotted_photo}}">
                         <h3 class="my-2">
-                             {{this.fantasy_name}}
+                            🦸 {{this.fantasy_name}}
                             <a class="btn btn-sm btn-secondary float-right ml-2" href="/update/{{this.id}}">Edit</a>
                             <a class="btn btn-sm btn-danger float-right" href="/delete/{{this.id}}">Delete</a>
                         </h3>
                     </div>
                     <div class="card-body">
-                        <strong>Customer name:</strong> {{this.real_name}}
+                        <strong>Real name:</strong> {{this.real_name}}
                         <br>
-                        <strong>Checkin:</strong>
+                        <strong>Strength level:</strong>
+                        <br>
                         <div class="progress">
                             <div class="progress-bar w-{{this.strength_level}}" role="progressbar"
                                 aria-valuenow="{{this.strength_level}}" aria-valuemin="0" aria-valuemax="10"></div>
